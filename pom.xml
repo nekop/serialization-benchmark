@@ -39,8 +39,18 @@
 
     <dependency>
       <groupId>org.jboss.marshalling</groupId>
-      <artifactId>jboss-marshalling-osgi</artifactId>
-      <version>LATEST</version>
+      <artifactId>jboss-marshalling</artifactId>
+      <version>1.4.10.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.marshalling</groupId>
+      <artifactId>jboss-marshalling-serial</artifactId>
+      <version>1.4.10.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.marshalling</groupId>
+      <artifactId>jboss-marshalling-river</artifactId>
+      <version>1.4.10.Final</version>
     </dependency>
 
     <dependency>
