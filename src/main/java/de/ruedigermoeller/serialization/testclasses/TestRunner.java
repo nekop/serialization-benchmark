@@ -107,46 +107,11 @@ public class TestRunner {
 
     List<SerTest> mTests = new ArrayList<>();
     public void registerTests() {
-        if ( "default".equals(variants) ) {
-            mTests.addAll(java.util.Arrays.asList(
-                    new FSTTest("FST", false, false), // unsafe and preferspeed deprecated unsupported since 1.43.
-                    new KryoTest("Kryo 2.23"),
-//                new KryoUnsafeTest("Kryo 2.23 Unsafe"),
-                    new JBossRiver("JBoss-River"),
-                    new JavaSerTest("Java built in"),
-                    new JBossSerializer("JBoss-Serializer")
-            ));
-        } else if ( "unsafe".equals(variants)) {
-            mTests.addAll(java.util.Arrays.asList(
-                    new KryoUnsafeTest("Kryo 2.23 Unsafe"),
-                    new KryoUnsafeRegTest("Kryo 2.23 Unsafe pre-register JDK", true),
-                    new KryoUnsafeRegTest("Kryo 2.23 Unsafe pre-register all", false)
-            ));
-        } else if ( "cross".equals(variants)) {
-            if ( tests.equals(testDefault) ) {
-                tests = "acdqefgijmonp"; // for jsonish tests use subset
-            }
-            mTests.addAll(java.util.Arrays.asList(
-                    new BoonTest("BOON JSon") ,
-                    new JSonIOTest("JSON IO") ,
-                    new JacksonTest("Jackson")
-//                    new FSTTest("FST", false, false), // compare to fastest
-//                    new JavaSerTest("Java built in") // and standard
-            ));
-        } else {
-            mTests.addAll(java.util.Arrays.asList(
-                    new FSTTest("FST", false, false), // unsafe and preferspeed deprecated unsupported since 1.43.
-                    new KryoTest("Kryo 2.23"),
-                    new JBossRiver("JBoss-River"),
-                    new JavaSerTest("Java built in"),
-                    new JBossSerializer("JBoss-Serializer"),
-                    new KryoRegTest("Kryo 2.23 pre-register JDK", true),
-                    new KryoRegTest("Kryo 2.23 pre-register all", false),
-                    new KryoUnsafeTest("Kryo 2.23 Unsafe"),
-                    new KryoUnsafeRegTest("Kryo 2.23 Unsafe pre-register JDK", true),
-                    new KryoUnsafeRegTest("Kryo 2.23 Unsafe pre-register all", false)
-            ));
-        }
+        mTests.addAll(java.util.Arrays.asList(
+          new FSTTest("FST 1.x", false, false),
+          new KryoTest("Kryo 2.x"),
+          new JBossRiver("JBoss-Marshalling-River 1.x"),
+          new JavaSerTest("Java built in")));
     }
 
     HtmlCharter charter = new HtmlCharter("./result.html");
